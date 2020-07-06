@@ -7,7 +7,6 @@ var HashTable = function() {
 
 HashTable.prototype.insert = function(k, v) {
   var index = getIndexBelowMaxForKey(k, this._limit);
-  //debugger;
   if(this._storage.get(index) === undefined){
     this._storage.set(index, []);
   }
@@ -21,7 +20,6 @@ HashTable.prototype.insert = function(k, v) {
     }
   }
   if(!found){
-    //debugger;
     bucket.push([k, v]);
   }
 };
