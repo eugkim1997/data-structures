@@ -54,6 +54,13 @@ describe('graph', function() {
     expect(graph.hasEdge(4, 5)).to.equal(false);
   });
 
+  it('should not add edges when fromNode or toNode is not a node', function() {
+    graph.addNode(4);
+    graph.addNode(5);
+    graph.addEdge(5, 3);
+    expect(graph.hasEdge(5, 3)).to.equal(false);
+  });
+
   it('should execute a callback on each node in the graph', function() {
     var connectToFive = function(item) {
       graph.addEdge(item, 5);
