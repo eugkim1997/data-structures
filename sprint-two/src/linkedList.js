@@ -15,8 +15,12 @@ var LinkedList = function() {
   };
 
   list.removeHead = function() {
-    var result = list.head.value;
-    list.head = list.head.next;
+    if(list.head !== null){
+      var result = list.head.value;
+      list.head = list.head.next;
+    }else{
+      result = null;
+    }
     return result;
   };
 
