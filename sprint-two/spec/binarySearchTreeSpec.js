@@ -20,6 +20,27 @@ describe('binarySearchTree', function() {
     expect(binarySearchTree.right.left.value).to.equal(6);
   });
 
+  it('should not insert value that are already in the tree', function() {
+    binarySearchTree.insert(2);
+    binarySearchTree.insert(3);
+    binarySearchTree.insert(7);
+    binarySearchTree.insert(7);
+    var count = 0;
+    function checkDuplicates(tree, val) {
+      if (tree.value === val) {
+        count += 1;
+      }
+      if (tree.left) {
+        checkDuplicates(tree.left, val);
+      }
+      if (tree.right) {
+      checkDuplicates(tree.right, val);
+      }
+    }
+    checkDuplicates(binarySearchTree, 7);
+    expect(count).to.equal(1);
+  });
+
   it('should have a working "contains" method', function() {
     binarySearchTree.insert(2);
     binarySearchTree.insert(3);
