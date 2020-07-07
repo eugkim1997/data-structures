@@ -23,6 +23,11 @@ describe('hashTable', function() {
     expect(hashTable.retrieve('Steven')).not.to.equal('Seagal');
   });
 
+  it('should return undefined for uninserted key', function() {
+    hashTable.insert('Eugene', 'Kim');
+    expect(hashTable.retrieve('Jack')).to.equal(undefined);
+  });
+
   it('should overwrite values that have the same key', function() {
     hashTable.insert('Bob', 'Loblaw');
     hashTable.insert('Bob', 'Barker');
